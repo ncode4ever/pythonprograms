@@ -2,14 +2,21 @@
 # You can install it using pip3:
 # pip3 install mysql-connector-python
 # Import the MySQL Connector module
-# This program willconnect to MySQL server and fetch the table data from the lassicmodels.employees table
+# This program willconnect to MySQL server and fetch the table data from the classicmodels.employees table
 # and write the output to a file called employees.txt
 # Import the MySQL Connector module
+import os
 import mysql.connector
+
+# Get MySQL password from environment variable
+mysql_password = os.environ.get('MYSQL_PASSWORD')
 
 # Open database connection
 db = mysql.connector.connect(
-    host="localhost", user="root", password="Macbook!981")
+    host="localhost",
+    user="root",
+    password=mysql_password
+)
 
 # prepare a cursor object using cursor() method
 cursor = db.cursor()
